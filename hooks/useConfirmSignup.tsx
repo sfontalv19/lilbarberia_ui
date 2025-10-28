@@ -31,3 +31,4 @@ export function useConfirmSignup() {
 
   return { handleConfirm, loading, error, success };
 }
+export const dynamic = "force-dynamic";

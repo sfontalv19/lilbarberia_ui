@@ -35,3 +35,4 @@ export default function ConfirmSignupForm() {
     </form>
   );
 }
+export const dynamic = "force-dynamic";
