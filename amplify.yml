@@ -3,20 +3,11 @@ frontend:
   phases:
     preBuild:
       commands:
-        # Instala dependencias
         - npm ci
-
-        # Carga el archivo .env si existe
-        - echo "Cargando variables de entorno..."
-        - if [ -f .env ]; then
-            export $(grep -v '^#' .env | xargs);
-          fi
     build:
       commands:
-        # Construye la app Next.js
-        - npm run build
+        - npx amplify-hosting-ci-build
   artifacts:
-    # Carpeta donde Next.js guarda el resultado del build
     baseDirectory: .next
     files:
       - '**/*'
