@@ -8,9 +8,16 @@ frontend:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: .next
+    # 👇 Esta es la carpeta que Amplify debe publicar (para App Router)
+    baseDirectory: .next/standalone
     files:
       - '**/*'
+    # 👇 Incluir también los archivos estáticos y públicos
+  customHeaders:
+    - pattern: '**/*'
+      headers:
+        - key: 'Cache-Control'
+          value: 'public,max-age=0,must-revalidate'
   cache:
     paths:
       - node_modules/**/*
