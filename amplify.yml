@@ -6,18 +6,22 @@ frontend:
         - npm ci
     build:
       commands:
+        # 👇 construye tu aplicación Next.js (App Router)
         - npm run build
   artifacts:
-    # 👇 Esta es la carpeta que Amplify debe publicar (para App Router)
-    baseDirectory: .next/standalone
+    # 👇 esta es la carpeta correcta para SSR (no .next)
+    baseDirectory: .next
     files:
       - '**/*'
-    # 👇 Incluir también los archivos estáticos y públicos
+  cache:
+    paths:
+      - node_modules/**/*
   customHeaders:
     - pattern: '**/*'
       headers:
         - key: 'Cache-Control'
-          value: 'public,max-age=0,must-revalidate'
-  cache:
-    paths:
-      - node_modules/**/*
+          value: 'no-cache'
+  # 👇 fuerza ejecución del servidor Next.js en Amplify
+  custom:
+    nextJsBuild:
+      enableSSR: true
