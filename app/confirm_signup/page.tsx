@@ -36,3 +36,4 @@ export default function ConfirmSignupPage() {
       </div>
     );
 }
+export const dynamic = "force-dynamic";
