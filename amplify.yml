@@ -6,15 +6,12 @@ frontend:
         - npm ci
     build:
       commands:
-        # 👇 construye tu aplicación como SSR
-        - npx next build
+        - npm run build
   artifacts:
-    baseDirectory: .next
+    # 👇 Amplify debe publicar la carpeta generada por `next export`
+    baseDirectory: out
     files:
       - '**/*'
   cache:
     paths:
       - node_modules/**/*
-  custom:
-    nextJsBuild:
-      enableSSR: true

@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,      // Buenas prácticas de desarrollo      //  Necesario para despliegue en Amplify o Docker
+  output: 'export', // 👈 Esto reemplaza el antiguo 'next export'
   images: {
-    domains: [],              // Puedes agregar dominios si usas imágenes externas
-  }
+    unoptimized: true, // 👈 Necesario si usas imágenes locales
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
