@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { AuthService } from "@/lib/api/auth";
 import {useRouter} from "next/navigation"
