@@ -2,7 +2,6 @@
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import Logo from "@/hooks/ui/Logo";
-import {Button} from "@/hooks/ui/Button"
 import Image from "next/image";
 import ConfirmSignupForm from "@/components/login/ConfirmSignupForm";
 
@@ -31,6 +30,7 @@ export default function ConfirmSignupPage() {
         {/* Contenedor central */}
         <div className="relative z-10 flex flex-col items-center">
           <Logo />
+          
           <ConfirmSignupForm />
         </div>
       </div>
